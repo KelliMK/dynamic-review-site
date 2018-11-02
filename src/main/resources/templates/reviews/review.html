@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="${review.languageName}">Language</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1 th:text="${review.languageName}">Language Name</h1>
+		</header>
+		<main>
+		<section class = "info">
+			<figure>
+           		<img th:src="|/images/${review.reviewImageUrl}.jpg|"/>
+        	</figure>
+			<ul>
+				<li>
+					<h2>Language Type</h2>
+					<address th:text="${review.category.categoryName}">Category Name</address>
+				</li>
+				<li>
+					<h2>Year Created</h2>
+					<p th:text="${review.yearCreated}">XXXX</p>
+				</li>
+				<li>
+					<h2>User-Friendliness</h2>
+					<p th:text="|${review.userFriendliness}/10|">Rating</p>
+				</li>
+				<li>
+					<h2>Usefulness</h2>
+					<p th:text="|${review.usefulness}/10|">Rating</p>
+				</li>
+				<li>
+					<h2>Review</h2>
+					<p th:text="${review.reviewText}">Review Text</p>
+				</li>
+			</ul>
+		</section>	
+		</main>
+		<footer>
+			<p><a th:href="|/categories/${review.category.id}|">Back to Language Category</a></p>
+			<p><a href="/categories">Back to Home</a></p>
+			<small>&copy; 2018</small>
+		</footer>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,128 @@
+.container{
+			display: grid;
+			grid-gap: 20px;
+			list-style: none;
+}
+.main-nav li{
+	 border-radius:11px;
+}
+.main-nav ul {
+  display: grid;
+  padding: 0;
+  list-style: none;
+   border-radius:11px
+  grid-gap:20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap:20px;
+}
+.main-nav a {
+  background:#ccc;
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  box-shadow:#696969;
+   border-radius:11px;
+   text-decoration: none;
+   list-style: none;
+    
+}
+.main-nav a:hover {
+  background:#696969;
+  color: #fff;
+  box-shadow: 2px 2px 15px white inset;
+}
+.boxes {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.box{
+	background: #ccc;
+   border: 1px #696969 solid;
+  position: relative;
+   padding: 10px;
+   margin: 10px;
+  list-style: none;
+   border-radius:11px
+ 
+}
+ .box:hover{
+  background:#696969;
+   color: #fff;
+  box-shadow: 2px 2px 15px white inset;
+}
+  .images {
+			display: block;
+			max-width: 685px;
+			max-height: 300px;
+			width: 40%;
+			margin-left: auto;
+			margin-right: auto;
+			padding: auto;
+			text-align: center;
+		}
+		table, th, td{
+			border: 1px solid black;
+			margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none;
+		}
+		* ul li{
+			margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none;
+			list-style: none;
+			list-style-type: none;
+		}
+		body{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+ 			 font-family: Arial, Helvetica, sans-serif;
+  			color: black;
+  			 border-radius:11px;
+   			list-style: none;
+			background-color: white;
+			list-style: none;
+  			text-decoration: none;
+  			list-style-type: none;
+		}
+		header{
+			margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none
+		}
+		footer{
+		margin: auto;
+			padding: auto;
+			text-align: center;
+			text-decoration: none
+		}
+.info {
+  list-style: none;
+  text-decoration: none
+  background-color: #ccc;
+  box-shadow:#696969;
+  padding: 3rem;
+  border-radius:11px;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.info ul{
+list-style: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+.info li{
+	list-style: none;
+  text-decoration: none;
+  list-style-type: none;
+ } 
