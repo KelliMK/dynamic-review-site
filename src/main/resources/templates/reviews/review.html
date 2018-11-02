@@ -36,7 +36,24 @@
 					<p th:text="${review.reviewText}">Review Text</p>
 				</li>
 			</ul>
-		</section>	
+		</section>
+
+			<div class="comments">
+				<p>Enter your comment here:</p>
+
+				<form id="frm1" action="/review.html">
+				  Comment Title: <input type="text" name="comment-title"><br>
+				  <textarea name="actal-comment" id="user-comment" rows="5" 	cols="40"></textarea>
+				<span id="comment-count" class="hide"></span>
+				  <input type="button" onclick="myFunction()" value="Submit">
+				</form>
+			</div>
+
+		<!-- <div class="comments">
+			<label for="comment">Short Comment (up to 140 characters)</label>
+			<textarea name="actal-comment" id="user-comment" rows="5" 	cols="30"></textarea>
+			<span id="comment-count" class="hide"></span>
+		</div> -->	
 		</main>
 		<footer>
 			<p><a th:href="|/categories/${review.category.id}|">Back to Language Category</a></p>
@@ -44,5 +61,10 @@
 			<small>&copy; 2018</small>
 		</footer>
 	</div>	
+	<script>
+function myFunction() {
+    document.getElementById("frm1").submit();
+}
+</script>
 </body>
 </html>
