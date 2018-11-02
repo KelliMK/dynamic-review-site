@@ -1,10 +1,14 @@
 package org.wecancodeit.dynamicreviewsite.model;
  
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
  
 @Entity
 public class Review {
@@ -20,8 +24,16 @@ public class Review {
 	private Long userFriendliness;
 	private Long usefulness;
 	
+	
 	@ManyToOne
-	private Category category;
+ 	private Category category;
+	
+	@OneToMany(mappedBy = "review")
+	private Collection<Comment> comments;
+	
+	public Collection <Comment> getComments(){
+		return comments;
+	}
 	
 	public Review() {}
 	
