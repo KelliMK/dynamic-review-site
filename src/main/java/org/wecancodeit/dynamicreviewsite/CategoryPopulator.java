@@ -5,17 +5,20 @@ import javax.annotation.Resource;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.dynamicreviewsite.model.Category;
+import org.wecancodeit.dynamicreviewsite.model.Comment;
 import org.wecancodeit.dynamicreviewsite.model.Review;
 import org.wecancodeit.dynamicreviewsite.repositories.CategoryRepository;
+import org.wecancodeit.dynamicreviewsite.repositories.CommentRepository;
 import org.wecancodeit.dynamicreviewsite.repositories.ReviewRepository;
  
 @Service
 public class CategoryPopulator implements CommandLineRunner {
  	@Resource
 	CategoryRepository categoryRepo;
-	
 	@Resource
 	ReviewRepository reviewRepo;
+	@Resource
+	CommentRepository commentRepo;
  	@Override
 	public void run(String... args) throws Exception {
 		Category scriptingLanguages = new Category("Scripting Languages", "Programming languages that support special run-time environment programs that automate the execution of tasks. Scripting languages are interpreted by programs, not compiled.","code-1839877_640");
@@ -39,5 +42,21 @@ public class CategoryPopulator implements CommandLineRunner {
 		java = reviewRepo.save(java);
 		python = reviewRepo.save(python);
 		haskell = reviewRepo.save(haskell);
+		
+		Comment htmlExample = new Comment("username", "comment text", html);
+		Comment htmlExampleTwo = new Comment("username", "More comment text", html);
+		Comment tadsExample = new Comment("username", "comment text", tads);
+		Comment cPlusPlusExample = new Comment("username", "comment text", cPlusPlus);
+		Comment javaExample = new Comment("username", "comment text", java);
+		Comment pythonExample = new Comment("username", "comment text", python);
+		Comment haskellExample = new Comment("username", "comment text", haskell);
+		
+		htmlExample = commentRepo.save(htmlExample);
+		htmlExampleTwo = commentRepo.save(htmlExampleTwo);
+		tadsExample = commentRepo.save(tadsExample);
+		cPlusPlusExample = commentRepo.save(cPlusPlusExample);
+		javaExample = commentRepo.save(javaExample);
+		pythonExample = commentRepo.save(pythonExample);
+		haskellExample = commentRepo.save(haskellExample);
 	}
 }
