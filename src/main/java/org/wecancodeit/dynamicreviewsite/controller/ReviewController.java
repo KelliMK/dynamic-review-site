@@ -12,6 +12,7 @@ import org.wecancodeit.dynamicreviewsite.model.Comment;
 import org.wecancodeit.dynamicreviewsite.repositories.CommentRepository;
 import org.wecancodeit.dynamicreviewsite.repositories.ReviewRepository;
 
+@SuppressWarnings("unused")
 @Controller
 @RequestMapping("/reviews")
 public class ReviewController {
@@ -35,8 +36,8 @@ public class ReviewController {
 	}
 
 	@PostMapping("/reviews/{id}")
-	public String addComment(@PathVariable(value = "id") Long id, String username, String content, Model model) {
-		commentRepo.save(new Comment(username, content, reviewRepo.findById(id).get()));
+	public String addComment(@PathVariable(value = "commentId") Long commentId, String username, String content, Model model) {
+		commentRepo.save(new Comment(username, content, reviewRepo.findById(commentId).get()));
 		return "redirect:/reviews/{id}";
 	}
 }

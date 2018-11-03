@@ -5,9 +5,11 @@ import javax.annotation.Resource;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.dynamicreviewsite.model.Category;
+import org.wecancodeit.dynamicreviewsite.model.Comment;
 import org.wecancodeit.dynamicreviewsite.model.Review;
 import org.wecancodeit.dynamicreviewsite.model.Tag;
 import org.wecancodeit.dynamicreviewsite.repositories.CategoryRepository;
+import org.wecancodeit.dynamicreviewsite.repositories.CommentRepository;
 import org.wecancodeit.dynamicreviewsite.repositories.ReviewRepository;
 import org.wecancodeit.dynamicreviewsite.repositories.TagRepository;
 
@@ -18,6 +20,9 @@ public class CategoryPopulator implements CommandLineRunner {
 
 	@Resource
 	TagRepository tagRepo;
+  
+  @Resource
+  CommentRepository commentRepo;
 
 	@Resource
 	ReviewRepository reviewRepo;
@@ -79,6 +84,21 @@ public class CategoryPopulator implements CommandLineRunner {
 		clean = tagRepo.save(clean);
 		machine = tagRepo.save(machine);
 		bulky = tagRepo.save(bulky);
-
+		
+		Comment htmlExample = new Comment("username", "comment text", html);
+		Comment htmlExampleTwo = new Comment("username", "More comment text", html);
+		Comment tadsExample = new Comment("username", "comment text", tads);
+		Comment cPlusPlusExample = new Comment("username", "comment text", cPlusPlus);
+		Comment javaExample = new Comment("username", "comment text", java);
+		Comment pythonExample = new Comment("username", "comment text", python);
+		Comment haskellExample = new Comment("username", "comment text", haskell);
+		
+		htmlExample = commentRepo.save(htmlExample);
+		htmlExampleTwo = commentRepo.save(htmlExampleTwo);
+		tadsExample = commentRepo.save(tadsExample);
+		cPlusPlusExample = commentRepo.save(cPlusPlusExample);
+		javaExample = commentRepo.save(javaExample);
+		pythonExample = commentRepo.save(pythonExample);
+		haskellExample = commentRepo.save(haskellExample);
 	}
 }

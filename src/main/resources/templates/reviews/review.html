@@ -45,14 +45,16 @@
 				  <label>Username: </label><br>
 				  <input type="text" name="username"><br>
 				  <label>Comment: </label><br>
-				  <textarea name="actual-comment" id="user-comment" rows="5" 	cols="40"></textarea>
+				  <textarea name="content" id="user-comment" rows="5" 	cols="40"></textarea><br>
 				<span id="comment-count" class="hide"></span>
 				  <input type="submit" onclick="myFunction()" value="My fucking comment">
 				</form>
+				
+				<h2 id="comments-section">Comments</h2><br>
 				<ul>
 					<li th:each="comment : ${review.comments}">
-						<h2 th:text="${comment.username}"></h2>
-						<h3	th:text="${comment.content}"></h3>
+						<h3 th:text="${comment.username}"></h3><br>
+						<p	th:text="${comment.content}"></p><br>
 					</li>			
 				</ul>
 			</div>
