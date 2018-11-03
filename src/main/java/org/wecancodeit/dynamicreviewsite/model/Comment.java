@@ -7,34 +7,34 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@SuppressWarnings("unused")
 @Entity
 public class Comment {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long commentId;
 	private String username;
-	private String comment;
+	private String content;
+	
+	@ManyToOne
+	private Review review;
 	
 	public Comment() {}
 	
-	public Comment(String username, String comment, Review review) {
+	public Comment(String username, String content, Review review) {
 		this.username = username;
-		this.comment = comment;
+		this.content = content;
 		this.review = review;
 	}
-	public Long getId() {
-		return id;
+	public Long getCommentId() {
+		return commentId;
 	}
 	public String getUsername() {
 		return username;
 	}
-	public String getComment() {
-		return comment;
+	public String getContent() {
+		return content;
 	}
-	
-	@JsonIgnore
-	@ManyToOne
-	private Review review;
 	
 }
