@@ -20,9 +20,9 @@ public class CategoryPopulator implements CommandLineRunner {
 
 	@Resource
 	TagRepository tagRepo;
-  
-  @Resource
-  CommentRepository commentRepo;
+
+	@Resource
+	CommentRepository commentRepo;
 
 	@Resource
 	ReviewRepository reviewRepo;
@@ -84,7 +84,7 @@ public class CategoryPopulator implements CommandLineRunner {
 		clean = tagRepo.save(clean);
 		machine = tagRepo.save(machine);
 		bulky = tagRepo.save(bulky);
-		
+
 		Comment htmlExample = new Comment("username", "comment text", html);
 		Comment htmlExampleTwo = new Comment("username", "More comment text", html);
 		Comment tadsExample = new Comment("username", "comment text", tads);
@@ -92,7 +92,7 @@ public class CategoryPopulator implements CommandLineRunner {
 		Comment javaExample = new Comment("username", "comment text", java);
 		Comment pythonExample = new Comment("username", "comment text", python);
 		Comment haskellExample = new Comment("username", "comment text", haskell);
-		
+
 		htmlExample = commentRepo.save(htmlExample);
 		htmlExampleTwo = commentRepo.save(htmlExampleTwo);
 		tadsExample = commentRepo.save(tadsExample);
