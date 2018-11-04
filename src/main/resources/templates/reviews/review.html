@@ -41,13 +41,11 @@
 			<div class="comments">
 				<p>Enter your comment here:</p>
 
-				<form id="frm1" th:action="|/reviews/${review.id}|" method="post">
-				  <label>Username: </label><br>
-				  <input type="text" name="username"><br>
-				  <label>Comment: </label><br>
-				  <textarea name="content" id="user-comment" rows="5" 	cols="40"></textarea><br>
-				<span id="comment-count" class="hide"></span>
-				  <input type="submit" onclick="myFunction()" value="My fucking comment">
+				<form th:action="|/reviews/${review.id}|" method="post">
+				  <input type="text" placeholder="Enter your username here" name="username"/><br>
+				  <textarea name="content" id="user-comment" placeholder="Enter your comment's text here" rows="5" cols="40"></textarea><br>
+				<!-- <span id="comment-count" class="hide"></span>-->
+				  <input type="submit" value="Submit"/>
 				</form>
 				
 				<h2 id="comments-section">Comments</h2><br>
@@ -65,10 +63,5 @@
 			<small>&copy; 2018</small>
 		</footer>
 	</div>	
-	<script>
-function myFunction() {
-    document.getElementById("frm1").submit();
-}
-</script>
 </body>
 </html>

@@ -3,20 +3,23 @@ package org.wecancodeit.dynamicreviewsite.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import org.wecancodeit.dynamicreviewsite.model.Review;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@SuppressWarnings("unused")
 @Entity
 public class Comment {
 	
 	@Id
 	@GeneratedValue
-	private Long commentId;
+	private Long id;
 	private String username;
+	@Lob
 	private String content;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Review review;
 	
@@ -27,14 +30,17 @@ public class Comment {
 		this.content = content;
 		this.review = review;
 	}
-	public Long getCommentId() {
-		return commentId;
+	public Long getId() {
+		return id;
 	}
 	public String getUsername() {
 		return username;
 	}
 	public String getContent() {
 		return content;
+	}
+	public Review getReview() {
+		return review;
 	}
 	
 }
