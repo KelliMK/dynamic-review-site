@@ -22,9 +22,6 @@ public class CategoryPopulator implements CommandLineRunner {
 	TagRepository tagRepo;
 
 	@Resource
-	CommentRepository commentRepo;
-
-	@Resource
 	ReviewRepository reviewRepo;
 
 	@Override
@@ -68,7 +65,7 @@ public class CategoryPopulator implements CommandLineRunner {
 		java = reviewRepo.save(java);
 		python = reviewRepo.save(python);
 		haskell = reviewRepo.save(haskell);
-
+  
 		Tag general = new Tag("General Purpose");
 		Tag specific = new Tag("Specific Purpose");
 		Tag beginner = new Tag("Beginner Friendly");
@@ -84,21 +81,5 @@ public class CategoryPopulator implements CommandLineRunner {
 		clean = tagRepo.save(clean);
 		machine = tagRepo.save(machine);
 		bulky = tagRepo.save(bulky);
-
-		Comment htmlExample = new Comment("username", "comment text", html);
-		Comment htmlExampleTwo = new Comment("username", "More comment text", html);
-		Comment tadsExample = new Comment("username", "comment text", tads);
-		Comment cPlusPlusExample = new Comment("username", "comment text", cPlusPlus);
-		Comment javaExample = new Comment("username", "comment text", java);
-		Comment pythonExample = new Comment("username", "comment text", python);
-		Comment haskellExample = new Comment("username", "comment text", haskell);
-
-		htmlExample = commentRepo.save(htmlExample);
-		htmlExampleTwo = commentRepo.save(htmlExampleTwo);
-		tadsExample = commentRepo.save(tadsExample);
-		cPlusPlusExample = commentRepo.save(cPlusPlusExample);
-		javaExample = commentRepo.save(javaExample);
-		pythonExample = commentRepo.save(pythonExample);
-		haskellExample = commentRepo.save(haskellExample);
 	}
 }
