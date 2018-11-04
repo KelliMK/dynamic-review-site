@@ -27,5 +27,4 @@ public class ApiController {
 		return reviewRepo.findById(id).get();
 	}
 	
-	@PostMapping()
 }

@@ -10,7 +10,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.wecancodeit.dynamicreviewsite.model.Category;
+import org.wecancodeit.dynamicreviewsite.model.Comment;
+import org.wecancodeit.dynamicreviewsite.model.Review;
 import org.wecancodeit.dynamicreviewsite.repositories.CategoryRepository;
+import org.wecancodeit.dynamicreviewsite.repositories.CommentRepository;
 import org.wecancodeit.dynamicreviewsite.repositories.ReviewRepository;
  	
 @RunWith(SpringRunner.class)
@@ -25,6 +29,9 @@ public class ReviewControllerTest {
 	@MockBean
 	private ReviewRepository reviewRepo;
 	
+	@MockBean
+	private CommentRepository commentRepo;
+	
  	@Test
 	public void shouldBeOkWhenAccessingReviews() throws Exception {
  		mockMvc.perform(get("/reviews")).andExpect(status().isOk());
@@ -32,14 +39,5 @@ public class ReviewControllerTest {
 	@Test
 	public void shouldReturnReviewsTemplateWhenAccessingReviews() throws Exception {
 	    mockMvc.perform(get("/reviews")).andExpect(view().name("reviews/index"));
-	}
-	@Test
-	public void shouldBeOkWhenAccessingcategory() throws Exception {
-		mockMvc.perform(get("/categories")).andExpect(status().isOk());
-	}
-		    
-	@Test
-	public void shouldReturnCategoriesTemplateWhenAccessingCategories() throws Exception {		    	
-		mockMvc.perform(get("/categories/1")).andExpect(view().name("categories"));		   
 	}
  }
