@@ -15,7 +15,7 @@ public class Tag {
 	private Long tagId;
 	private String tagName;
 
-	@ManyToMany(mappedBy = "tag")
+	@ManyToMany(mappedBy = "tags")
 	private Collection<Review> reviews;
 
 	public Tag(String tagName) {
@@ -27,8 +27,12 @@ public class Tag {
 		addReview(review);
 	}
 
-	private void addReview(Review review) {
+	public void addReview(Review review) {
 		reviews.add(review);
+	}
+
+	public void removeReview(Review review) {
+		reviews.remove(review);
 	}
 
 	public Long getTagId() {
@@ -42,4 +46,5 @@ public class Tag {
 	public Collection<Review> getReviews() {
 		return reviews;
 	}
+
 }

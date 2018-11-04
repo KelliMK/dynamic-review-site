@@ -60,8 +60,10 @@
 			<div>
 				<label>Add Tag <input type="Tag" name="tagName"></label>
 				<button class="submitTag">Submit Tag</button>
+					<h3 th:text="${tagName}"></h3>
 			</div>
-			
+
+
 		</main>
 		<footer>
 			<p><a th:href="|/categories/${review.category.id}|">Back to Language Category</a></p>

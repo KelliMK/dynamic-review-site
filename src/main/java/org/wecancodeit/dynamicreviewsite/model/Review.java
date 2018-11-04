@@ -33,21 +33,21 @@ public class Review {
 	private Collection<Comment> comments;
 
 	@ManyToMany
-	private Collection<Tag> tag;
+	private Collection<Tag> tags;
 
 	public Collection<Comment> getComments() {
 		return comments;
 	}
 
 	public Collection<Tag> getTag() {
-		return tag;
+		return tags;
 	}
 
 	public Review() {
 	}
 
 	public Review(String languageName, int yearCreated, String reviewText, Category category, Long userFriendliness,
-			Long usefulness, String reviewImageUrl, Tag... tag) {
+			Long usefulness, String reviewImageUrl, Tag... tags) {
 		this.languageName = languageName;
 		this.yearCreated = yearCreated;
 		this.reviewText = reviewText;
@@ -55,7 +55,7 @@ public class Review {
 		this.userFriendliness = userFriendliness;
 		this.usefulness = usefulness;
 		this.reviewImageUrl = reviewImageUrl;
-		this.tag = new HashSet<>(Arrays.asList(tag));
+		this.tags = new HashSet<>(Arrays.asList(tags));
 	}
 
 	public Category getCategory() {
@@ -88,5 +88,13 @@ public class Review {
 
 	public int getYearCreated() {
 		return yearCreated;
+	}
+
+	public void addTag(Tag tag) {
+		tags.add(tag);
+	}
+
+	public void removeTag(Tag tag) {
+		tags.remove(tag);
 	}
 }
