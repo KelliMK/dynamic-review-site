@@ -39,8 +39,6 @@ public class ApiController {
 		System.out.println(body);
 		JSONObject json = new JSONObject(body);
 		String tagName = json.getString("tagName");
-//		System.out.println(tagName);
-//		System.out.println(id);
 		Review review = reviewRepo.findById(id).get();
 		if (tagRepo.findByTagName(tagName) == null) {
 			Tag tag = new Tag(tagName, review);
@@ -55,7 +53,5 @@ public class ApiController {
 		}
 		return review.getTag();
 	}
-
-
 
 }
