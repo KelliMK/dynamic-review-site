@@ -1,6 +1,7 @@
 const addTagButton = document.querySelector('button')
 const p = document.querySelector('.tags')
 const original = p.innerHTML;
+
 addTagButton.addEventListener('click', () => {
 	const input = document.querySelector('.buttonTag')
 	var xhttp = new XMLHttpRequest()

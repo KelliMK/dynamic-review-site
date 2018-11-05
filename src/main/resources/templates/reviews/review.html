@@ -44,7 +44,6 @@
 				<form th:action="|/reviews/${review.id}|" method="post">
 				  <input type="text" placeholder="Enter your username here" name="username"/><br>
 				  <textarea name="content" id="user-comment" placeholder="Enter your comment's text here" rows="5" cols="40"></textarea><br>
-				<!-- <span id="comment-count" class="hide"></span>-->
 				  <input type="submit" value="Submit"/>
 				</form>
 				
@@ -59,19 +58,19 @@
 
 			<div class="tags">
 				<p>
-					<label >Add a Tag: <input class="buttonTag"type="text" name="tagName"/></label>
-					<button class="tagSubmit">Submit</button>
+					<label >Add Tag: <input class="buttonTag" type="text" name="tagName"/></label>
 				</p>
-	
+					<button class="tagSubmit">Submit</button>
 				<ul>
-					<li th:each="tag : ${review.tags}">
-					
+					<li th:each="tag : ${review.tag}">
 						<h2 th:text="${tag.tagName}"></h2>
+						<p th:text="${tag.content}"></p>
 					</li>
 				</ul>
+				<p class="tagList">Tags:</p>
 			</div>
 
-
+			<script src="/js/app.js"></script>
 		</main>
 		<footer>
 			<p><a th:href="|/categories/${review.category.id}|">Back to Language Category</a></p>
