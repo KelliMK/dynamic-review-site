@@ -12,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Review {
 	@Id
@@ -32,6 +34,7 @@ public class Review {
 	@OneToMany(mappedBy = "review")
 	private Collection<Comment> comments;
 
+	@JsonIgnore
 	@ManyToMany
 	private Collection<Tag> tags;
 

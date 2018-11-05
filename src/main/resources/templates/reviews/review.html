@@ -57,10 +57,18 @@
 				</ul>
 			</div>
 
-			<div>
-				<label>Add Tag <input type="Tag" name="tagName"></label>
-				<button class="submitTag">Submit Tag</button>
-					<h3 th:text="${tagName}"></h3>
+			<div class="tags">
+				<p>
+					<label >Add a Tag: <input class="buttonTag"type="text" name="tagName"/></label>
+					<button class="tagSubmit">Submit</button>
+				</p>
+	
+				<ul>
+					<li th:each="tag : ${review.tags}">
+					
+						<h2 th:text="${tag.tagName}"></h2>
+					</li>
+				</ul>
 			</div>
 
 
