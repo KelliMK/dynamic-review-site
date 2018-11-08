@@ -41,15 +41,16 @@ public class ApiController {
 		String tagName = json.getString("tagName");
 		Review review = reviewRepo.findById(id).get();
 		if (tagRepo.findByTagName(tagName) == null) {
-			Tag tag = new Tag(tagName, review);
+			Tag tag = new Tag(tagName);
+			tag = tagRepo.save(tag);
 			review.addTag(tag);
-			tagRepo.save(tag);
+			reviewRepo.save(review);
 			System.out.println(review.getTag());
 		} else {
 			Tag tag = tagRepo.findByTagName(tagName);
-			tag.addReview(review);
+			tag = tagRepo.save(tag);
 			review.addTag(tag);
-			tagRepo.save(tag);
+			reviewRepo.save(review);
 		}
 		return review.getTag();
 	}
