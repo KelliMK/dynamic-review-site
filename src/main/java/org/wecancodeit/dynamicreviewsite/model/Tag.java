@@ -28,11 +28,6 @@ public class Tag {
 		this.tagName = tagName;
 	}
 
-	public Tag(String tagName, Review review) {
-		this.tagName = tagName;
-		addReview(review);
-	}
-
 	public void addReview(Review review) {
 		reviews.add(review);
 	}
